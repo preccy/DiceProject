@@ -100,4 +100,4 @@ else:
 Results = open("Scores.txt","w")	#Open Txt file for editing
 Winner = input("Winner please enter your name!") #Get winner name instead of having the winner enter credentials in name due to login system
 WrittenScore = "/n" + Winner + "," + str(WinnerScore) #Convert the scores and text into a writeable format
-Results.write("WrittenScore") #Write to the file
+Results.write(WrittenScore) #Write to the file

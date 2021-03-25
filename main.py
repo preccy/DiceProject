@@ -8,14 +8,14 @@ Dice1 = 0
 Dice2 = 0
 
 def login():
-  username = input("Enter your username: ").strip() #Removing extra spaces to raw text
+  username = input("Player 1 Enter your username: ").strip() #Removing extra spaces to raw text
   password = input("Enter your password: ").strip()
 
   with open("Logins.txt", "r") as f: #Opening text file in read
     for line in f:
       loginInfo = line.strip().split(",") #splitting and removing the , from the text file
       if username == loginInfo[0] and password == loginInfo[1]: #checking if the password and username matches
-        return True #returning result
+        return True, loginInfo #returning result
     return False
 
 if login():
@@ -24,6 +24,25 @@ else:
 	print("Wrong login exiting...")
 	time.sleep(2)
 	quit()
+
+def login2():
+  username2 = input("Player 2 Enter your username: ").strip() #Removing extra spaces to raw text
+  password2 = input("Enter your password: ").strip()
+
+  with open("Logins.txt", "r") as f: #Opening text file in read
+    for line in f:
+      loginInfo2 = line.strip().split(",") #splitting and removing the , from the text file
+      if username2 == loginInfo2[0] and password2 == loginInfo2[1]: #checking if the password and username matches
+        return True, username2  #returning result
+    return False
+
+if login2():
+  input("Correct login \n Press any key to continue: ")
+else:
+	print("Wrong login exiting...")
+	time.sleep(2)
+	quit()
+
 
 print("Rolling Player 1's dice...")
 time.sleep(2);
@@ -48,7 +67,7 @@ while Rounds != 5:
 		pass
 	print(Score1); #Printing per dice roll score
 	time.sleep(0.5)
-print("Player 1 score = ",Score1); #Printing final score for the player
+print("Player 1's score = ",Score1); #Printing final score for the player
 
 Rounds = 0 #Resetting round variable for the second player
 
@@ -98,6 +117,6 @@ else:
 
 
 Results = open("Scores.txt","w")	#Open Txt file for editing
-Winner = input("Winner please enter your name!") #Get winner name instead of having the winner enter credentials in name due to login system
+Winner = input("Winner please enter your name! ") #Get winner name instead of having the winner enter credentials in name due to login system
 WrittenScore = "/n" + Winner + "," + str(WinnerScore) #Convert the scores and text into a writeable format
 Results.write(WrittenScore) #Write to the file

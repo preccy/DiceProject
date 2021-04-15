@@ -15,7 +15,7 @@ def login():
     for line in f:
       loginInfo = line.strip().split(",") #splitting and removing the , from the text file
       if username == loginInfo[0] and password == loginInfo[1]: #checking if the password and username matches
-        return True, loginInfo #returning result
+        return True #returning result
     return False
 
 if login():
@@ -33,7 +33,7 @@ def login2():
     for line in f:
       loginInfo2 = line.strip().split(",") #splitting and removing the , from the text file
       if username2 == loginInfo2[0] and password2 == loginInfo2[1]: #checking if the password and username matches
-        return True, username2  #returning result
+        return True  #returning result
     return False
 
 if login2():
@@ -119,4 +119,4 @@ else:
 Results = open("Scores.txt","w")	#Open Txt file for editing
 Winner = input("Winner please enter your name! ") #Get winner name instead of having the winner enter credentials in name due to login system
 WrittenScore = "/n" + Winner + "," + str(WinnerScore) #Convert the scores and text into a writeable format
-Results.write(WrittenScore) #Write to the file
+Results.write(str(WrittenScore)) #Write to the file

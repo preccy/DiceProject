@@ -44,11 +44,12 @@ else:
 	quit()
 
 
-print("Rolling Player 1's dice...")
+print("\033[0;32mRolling Player 1's dice...")
 time.sleep(2);
 
 while Rounds != 5:
 	Rounds = Rounds + 1;
+	print("\033[94mRound "+str(Rounds));
 	Dice1 = random.randint(1,6); #Using random int for getting an int inside of a range simulating random dice roll
 	Dice2 = random.randint(1,6);
 	RoundTotal = Dice1 + Dice2;
@@ -65,18 +66,19 @@ while Rounds != 5:
 		Score1 = 0
 	else:
 		pass
-	print(Score1); #Printing per dice roll score
+	print("\033[1;31m"+str(Score1)); #Printing per dice roll score
 	time.sleep(0.5)
-print("Player 1's score = ",Score1); #Printing final score for the player
+print("\033[1;36mPlayer 1's score = ",Score1); #Printing final score for the player
 
 Rounds = 0 #Resetting round variable for the second player
 
 time.sleep(1)
-print("Rolling player 2's dice...")
+print("\033[0;32mRolling player 2's dice...")
 time.sleep(2)
 
 while Rounds != 5:
 	Rounds = Rounds + 1;
+	print("\033[94mRound "+str(Rounds));
 	Dice1 = random.randint(1,6);
 	Dice2 = random.randint(1,6);
 	RoundTotal = Dice1 + Dice2;
@@ -93,9 +95,9 @@ while Rounds != 5:
 		Score2 = 0
 	else:
 		pass
-	print(Score2);
+	print("\033[1;31m"+str(Score2));
 	time.sleep(0.5)
-print("Player 2 score = ",Score2);
+print("\033[1;36mPlayer 2 score = ",Score2);
 
 
 if Score2 > Score1: #Printing winner

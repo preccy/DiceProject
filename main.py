@@ -25,7 +25,7 @@ def Scores():
 		sys.exit()
 
 def menu():
-    print("\033[1;31m************Welcome to Dice Game**************")
+    print("\033[1;31m************Welcome to Dice Game**************\nDeveloped by preccy")
     print()
 
     choice = input("""
@@ -33,7 +33,6 @@ A: Start
 B: Print Scores
 Q: Exit
 Please enter your choice: """)
-
     if choice == "A" or choice =="a":
         pass
     elif choice == "B" or choice =="b":

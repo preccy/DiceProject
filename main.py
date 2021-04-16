@@ -1,11 +1,51 @@
 import random #Imports for the project
 import time
+import sys
+
 
 Score1 = 0 #setting variables to be used in the code
 Score2 = 0
 Rounds = 0
 Dice1 = 0
 Dice2 = 0
+
+
+
+def Scores():
+	Savedscores = open('Scores.txt', 'r')
+	file_contents = Savedscores.read()
+	print("\033[1;36m",file_contents)
+	Savedscores.close()
+	Mainmenu = input("\033[0;32mWould you like to go back to the main menu?\n Yes or no?: ")
+	if Mainmenu == "Yes" or "yes" or "Y" or "y":
+		menu()
+	else:
+		sys.exit()
+
+def menu():
+    print("\033[1;31m************Welcome to Dice Game**************")
+    print()
+
+    choice = input("""
+A: Start
+B: Print Scores
+Q: Exit
+Please enter your choice: """)
+
+    if choice == "A" or choice =="a":
+        pass
+    elif choice == "B" or choice =="b":
+		  	Scores()
+    elif choice=="Q" or choice=="q":
+        sys.exit()
+    else:
+        print("You must only select either A,B or Q")
+        print("Please try again")
+        menu()
+
+menu()
+
+#the program is initiated, so to speak, here
 
 def login():
   username = input("Player 1 Enter your username: ").strip() #Removing extra spaces to raw text
@@ -122,3 +162,5 @@ Results = open("Scores.txt","w")	#Open Txt file for editing
 Winner = input("Winner please enter your name! ") #Get winner name instead of having the winner enter credentials in name due to login system
 WrittenScore = "/n" + Winner + "," + str(WinnerScore) #Convert the scores and text into a writeable format
 Results.write(str(WrittenScore)) #Write to the file
+Results.close()
+print("Printing score to winner scores file...")

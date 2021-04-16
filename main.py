@@ -16,10 +16,12 @@ def Scores():
 	file_contents = Savedscores.read()
 	print("\033[1;36m",file_contents)
 	Savedscores.close()
-	Mainmenu = input("\033[0;32mWould you like to go back to the main menu?\n Yes or no?: ")
+	Mainmenu = input("\033[0;32mWould you like to go back to the main menu?\nYes or no?: ")
 	if Mainmenu == "Yes" or "yes" or "Y" or "y":
 		menu()
 	else:
+		print("\033[;1mProgram exiting...")
+		time.sleep(2)
 		sys.exit()
 
 def menu():
@@ -37,6 +39,8 @@ Please enter your choice: """)
     elif choice == "B" or choice =="b":
 		  	Scores()
     elif choice=="Q" or choice=="q":
+        print("\033[;1mProgram exiting...")
+        time.sleep(2)
         sys.exit()
     else:
         print("You must only select either A,B or Q")

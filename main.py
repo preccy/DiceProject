@@ -8,6 +8,22 @@ Score2 = 0
 Rounds = 0
 Dice1 = 0
 Dice2 = 0
+LoginPass = ""
+LoginPassAuth = ""
+
+def Register():
+	LoginDB = open("Logins.txt", "a")
+	print("Register below.")
+	LoginUser = input("Enter the username you wish to register with: ")
+	LoginPass = input("Enter the password you wish to register with: ")
+	LoginPassAuth = input("Please re-type the password to confirm your registration: ")
+	if LoginPass == LoginPassAuth:
+		NewUser = "\n" + str(LoginUser) + "," + str(LoginPass)
+		LoginDB.write(NewUser)
+		LoginDB.close()
+		menu()
+	else:
+		Register()
 
 
 
@@ -31,18 +47,21 @@ def menu():
     choice = input("""
 A: Start
 B: Print Scores
+C: Register
 Q: Exit
 Please enter your choice: """)
     if choice == "A" or choice =="a":
         pass
     elif choice == "B" or choice =="b":
 		  	Scores()
+    elif choice == "C" or choice =="c":
+        Register()
     elif choice=="Q" or choice=="q":
         print("\033[;1mProgram exiting...")
         time.sleep(2)
         sys.exit()
     else:
-        print("You must only select either A,B or Q")
+        print("You must only select either A,B,C or Q")
         print("Please try again")
         menu()
 
@@ -78,6 +97,7 @@ def login2():
       if username2 == loginInfo2[0] and password2 == loginInfo2[1]: #checking if the password and username matches
         return True  #returning result
     return False
+
 
 if login2():
   input("Correct login \n Press any key to continue: ")
@@ -161,9 +181,10 @@ else:
 		WinnerScore = Score2
 
 
-Results = open("Scores.txt","w")	#Open Txt file for editing
+Results = open("Scores.txt","a")	#Open Txt file for editing
+Results.read
 Winner = input("Winner please enter your name! ") #Get winner name instead of having the winner enter credentials in name due to login system
-WrittenScore = "/n" + Winner + "," + str(WinnerScore) #Convert the scores and text into a writeable format
-Results.write(str(WrittenScore)) #Write to the file
+WrittenScore = "\n" + Winner + "," + str(WinnerScore) #Convert the scores and text into a writeable format
+Results.write(WrittenScore) #Write to the file
 Results.close()
 print("Printing score to winner scores file...")
